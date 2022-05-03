@@ -1,0 +1,14 @@
+#防火墙查看已开放端口
+firewall-cmd --list-all
+#开放端口
+#mysql
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+#jupyter
+firewall-cmd --zone=public --add-port=8888/tcp --permanent
+#supervisor
+firewall-cmd --zone=public --add-port=9001/tcp --permanent
+#防火墙重启
+firewall-cmd --reload
+
+#查看端口占用
+lsof -i:9001
